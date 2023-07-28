@@ -11,8 +11,8 @@ const { signInWithGoogle } = useFirebase();
     <div class="hero-body center">
       <div>
         <h1 class="title is-1 is-large is-spaced">{{ msg }}</h1>
-        <p class="subtitle is-4">hi</p>
-        <button @click="signInWithGoogle()">signup</button>
+        <p class="subtitle is-4">Document your life</p>
+        <button @click="signInWithGoogle()">Sign In with Google</button>
       </div>
     </div>
   </section>

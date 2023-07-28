@@ -1,15 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 import { computed } from "vue";
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
+  //   signInWithPopup,
   signInWithRedirect,
-  getRedirectResult,
   setPersistence,
-  browserSessionPersistence,
+  //   browserSessionPersistence,
   browserLocalPersistence,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -26,7 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 setPersistence(getAuth(), browserLocalPersistence);
 
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
 const getCurrentUser = async (): Promise<any> => {
   return new Promise((resolve, reject) => {
@@ -65,7 +64,7 @@ const useFirebase = () => {
       });
   };
 
-  return { isLoggedIn, signInWithGoogle };
+  return { isLoggedIn, signInWithGoogle, app };
 };
 
 export default useFirebase;
