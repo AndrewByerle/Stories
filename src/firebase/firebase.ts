@@ -57,7 +57,7 @@ const useFirebase = () => {
 
     signInWithRedirect(auth, provider)
       .then((res) => {
-        console.log(res, isLoggedIn.value);
+        console.log(res);
       })
       .catch((e) => {
         console.log(e);
