@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Welcome from "./views/Welcome.vue";
 import Storyboard from "./views/Storyboard.vue";
+import Loading from "./views/Loading.vue";
 
 import useFirebase from "./firebase/firebase";
 import { onMounted, ref } from "vue";
@@ -17,7 +18,7 @@ onMounted(async () => {
 
 <template>
   <template v-if="loading">
-    <p>loading...</p>
+    <Loading msg="Loading..." />
   </template>
   <template v-else-if="showSignup">
     <Welcome msg="Stories" />
