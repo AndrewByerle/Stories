@@ -1,13 +1,10 @@
 <script setup lang="ts">
 defineProps<{ msg: string }>();
 
-import { onMounted } from "vue";
 import useFirebase from "../firebase/firebase";
 import GoogleSignInButton from "../components/GoogleSignInButton.vue";
 
 const { signInWithGoogle } = useFirebase();
-
-onMounted(() => {});
 </script>
 
 <template>
