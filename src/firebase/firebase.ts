@@ -120,12 +120,15 @@ const useFirebase = () => {
       });
   };
 
+  const saveStory = () => {};
+
   return {
     isLoggedIn,
     signInWithGoogle,
     app,
     signOutUser,
     fetchRedirectResult,
+    saveStory,
   };
 };
 
