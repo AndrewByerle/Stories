@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import {
   getAuth,
   GoogleAuthProvider,

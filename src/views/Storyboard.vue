@@ -32,9 +32,9 @@ const addStory = () => {
 <template>
   <section class="hero is-fullheight is-oxford-blue">
     <div class="hero-body center">
-      <div class="columns">
+      <div class="columns is-mobile scroll">
         <template v-for="story in stories">
-          <div class="column is-one-half">
+          <div class="column is-one-fifth">
             <div class="card">
               <div class="card-content">
                 <p>
@@ -64,14 +64,17 @@ const addStory = () => {
 </template>
 
 <style scoped>
+.scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.card {
+  max-width: 200px;
+}
 .center {
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
-.test {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
 }
 </style>
