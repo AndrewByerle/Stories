@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Ref, onMounted, ref } from "vue";
+import { Ref, nextTick, onMounted, ref } from "vue";
 import useFirebase from "../firebase/firebase";
 import useStories from "../composables/stories";
 import { Story } from "../definitions/types";
@@ -18,6 +18,7 @@ onMounted(() => {
 // put in composable
 const currentInput = ref("");
 const tags: Ref<string[]> = ref([]);
+const storyContainerRef = ref();
 
 const addStory = () => {
   const newStory: Story = {
@@ -26,14 +27,21 @@ const addStory = () => {
     tags: tags.value,
   };
   stories.value.push(newStory);
+
+  if (stories.value.length > 5) {
+    nextTick(() => {
+      storyContainerRef.value.scrollLeft = 9999;
+    });
+  }
 };
 </script>
 
 <template>
   <section class="hero is-fullheight is-oxford-blue">
     <div class="hero-body center">
-      <div class="columns is-mobile scroll">
-        <template v-for="story in stories">
+      <!-- <div class="columns is-mobile scroll"> -->
+      <div class="columns is-mobile scroll" ref="storyContainerRef">
+        <template v-for="story in stories" :key="story.id">
           <div class="column is-one-fifth">
             <div class="card">
               <div class="card-content">
