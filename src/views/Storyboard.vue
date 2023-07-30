@@ -39,7 +39,6 @@ const addStory = () => {
 <template>
   <section class="hero is-fullheight is-oxford-blue">
     <div class="hero-body center">
-      <!-- <div class="columns is-mobile scroll"> -->
       <div class="columns is-mobile scroll" ref="storyContainerRef">
         <template v-for="story in stories" :key="story.id">
           <div class="column is-one-fifth">
