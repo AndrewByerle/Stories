@@ -44,9 +44,11 @@ const addStory = () => {
           <div class="column is-one-fifth">
             <div class="card">
               <div class="card-content">
-                <p>
-                  {{ story.text }}
-                </p>
+                <div class="is-hidden-mobile">
+                  <p>
+                    {{ story.text }}
+                  </p>
+                </div>
                 <p>
                   {{ story.date.toLocaleDateString("en-US") }}
                 </p>
