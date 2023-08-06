@@ -36,11 +36,20 @@ const addStory = () => {
 };
 
 const formatDate = (date: Date) => {
-  const formattedDate = date.toLocaleString("en-US", {
+  return date.toLocaleString("en-US", {
     month: "short",
     day: "numeric",
   });
-  return formattedDate;
+};
+
+const displayStoryText = (content: string) => {
+  // limits total text displayed on card
+  const maxLength = 30;
+  let shortenedContent = content;
+  if (content.length > maxLength) {
+    shortenedContent = content.substring(0, maxLength) + "...";
+  }
+  return shortenedContent;
 };
 </script>
 
@@ -49,7 +58,9 @@ const formatDate = (date: Date) => {
     <div class="hero-body center">
       <div class="columns is-mobile scroll" ref="storyContainerRef">
         <template v-for="story in stories" :key="story.id">
-          <div class="column is-one-third-mobile">
+          <div
+            class="column is-one-third-mobile is-one-fifth-desktop is-one-fifth-tablet"
+          >
             <div class="card">
               <div class="card-content">
                 <p>
@@ -57,7 +68,7 @@ const formatDate = (date: Date) => {
                 </p>
                 <div class="is-hidden-mobile">
                   <p>
-                    {{ story.text }}
+                    {{ displayStoryText(story.text) }}
                   </p>
                 </div>
               </div>
