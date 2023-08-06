@@ -34,6 +34,14 @@ const addStory = () => {
     });
   }
 };
+
+const formatDate = (date: Date) => {
+  const formattedDate = date.toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+  return formattedDate;
+};
 </script>
 
 <template>
@@ -41,17 +49,17 @@ const addStory = () => {
     <div class="hero-body center">
       <div class="columns is-mobile scroll" ref="storyContainerRef">
         <template v-for="story in stories" :key="story.id">
-          <div class="column is-one-fifth">
+          <div class="column is-one-third-mobile">
             <div class="card">
               <div class="card-content">
+                <p>
+                  {{ formatDate(story.date) }}
+                </p>
                 <div class="is-hidden-mobile">
                   <p>
                     {{ story.text }}
                   </p>
                 </div>
-                <p>
-                  {{ story.date.toLocaleDateString("en-US") }}
-                </p>
               </div>
             </div>
           </div>
