@@ -84,6 +84,19 @@ const displayStoryText = (content: string) => {
           placeholder="Start Here..."
           v-model="currentInput"
         ></textarea>
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input" type="text" placeholder="Add Tags" />
+          </div>
+          <div class="control">
+            <div class="select">
+              <select class="has-background-light">
+                <option>.com</option>
+                <option>.edu</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <button class="is-primary" @click="addStory">Send</button>
         <button @click="signOutUser" class="mt-6">sign out</button>
       </div>
